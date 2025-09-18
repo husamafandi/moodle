@@ -1,0 +1,283 @@
+/* === Boost Union – Post-SCSS (Moodle 4.5) ==================================
+   Enthält eigentliche Styles. Nutzt nur Variablen/Mixins aus dem Pre-SCSS.
+============================================================================ */
+
+/* Body & Typography */
+body {
+  color: $body-color;
+  background: $body-bg;
+  font-family: $font-family-sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $headings-color;
+  letter-spacing: -.01em;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
+  &:hover { text-decoration: underline; }
+  &:focus-visible { @include focus-ring($primary, .3); }
+}
+
+/* Navbar / Header */
+#page-header .navbar,
+.navbar.navbar-light {
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.92) 100%);
+  backdrop-filter: saturate(1.2) blur(6px);
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+  color: $primary;
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  color: $navbar-light-color;
+  border-radius: $border-radius;
+  padding: .4rem .7rem;
+  &:hover { background: rgba($primary,.06); color: $navbar-light-hover-color; }
+  &.active, &[aria-current="page"] { color: $navbar-light-active-color; }
+}
+
+/* Footer */
+#page-footer {
+  background: #0b1220;
+  color: rgba(255,255,255,.92);
+  a { color: #fff; text-decoration: underline; }
+}
+
+/* Buttons */
+.btn, .btn-primary, .btn-secondary {
+  border-radius: $btn-border-radius;
+  font-weight: $btn-font-weight;
+}
+
+.btn-primary {
+  background: $primary;
+  border-color: $primary;
+  &:hover { filter: brightness(0.95); }
+  &:focus-visible { @include focus-ring($primary, .35); }
+}
+
+.btn-outline-primary {
+  border-color: $primary;
+  color: $primary;
+  &:hover { background: rgba($primary,.08); }
+}
+
+/* Forms */
+.form-control {
+  border-radius: $input-border-radius;
+  box-shadow: $input-box-shadow;
+  &:focus { @include focus-ring($primary, .25); }
+}
+
+.custom-select, .form-select {
+  border-radius: $input-border-radius;
+}
+
+/* Cards: global & dashboard */
+.card {
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: $card-border-radius;
+  box-shadow: $card-box-shadow;
+}
+
+#page-dashboard .card,
+.pagelayout-dashboard .card {
+  @include card-hover-rise;
+}
+
+/* Course cards (My courses / dashboard) */
+.block_myoverview .card,
+.path-course-view .coursebox {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  .card-img-top, .courseimage {
+    height: 140px;
+    object-fit: cover;
+  }
+  .card-body {
+    padding: 1rem 1rem 0.85rem;
+  }
+  .progress {
+    height: .5rem;
+    border-radius: 999px;
+    .progress-bar { background-color: $success; }
+  }
+}
+
+/* Course header & index */
+#page .page-context-header {
+  .page-header-headings h1 { font-weight: 800; }
+  .page-header-image { border-radius: $border-radius-lg; }
+}
+
+.courseindex .courseindex-item {
+  border-radius: $border-radius;
+  &.current { background: rgba($primary,.06); }
+}
+
+/* Activity tiles & modules */
+.activity {
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: $border-radius;
+  padding: .75rem .9rem;
+  margin-bottom: .75rem;
+  background: #fff;
+  @include card-hover-rise;
+
+  .activityinstance > a {
+    font-weight: 600;
+    color: $headings-color;
+  }
+  .activityiconcontainer {
+    border-radius: .8rem;
+    background: rgba($primary,.08);
+    color: $primary;
+  }
+}
+
+/* Forum */
+.path-mod-forum .discussion {
+  border-radius: $border-radius-lg;
+  .author, .lastpost { color: #475569; }
+  .subject { font-weight: 700; }
+}
+
+/* Assignments */
+.path-mod-assign .grading-summary, 
+.path-mod-assign .submissionstatustable {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+}
+
+/* Messaging Drawer */
+.message-app.drawer {
+  @include glassy(#fff, 10px, .85);
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: $box-shadow-lg;
+}
+
+/* Blocks (right column etc.) */
+.block {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  .card-title { font-weight: 700; }
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  background: transparent;
+  .breadcrumb-item + .breadcrumb-item::before { color: #94a3b8; }
+  .breadcrumb-item.active { color: $primary; font-weight: 600; }
+}
+
+/* Tables & Lists */
+.table {
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+.table-striped tbody tr:nth-of-type(odd) { background: $table-striped-bg; }
+
+/* Alerts */
+.alert {
+  border-radius: $border-radius;
+  border: none;
+  box-shadow: $box-shadow-sm;
+}
+
+/* Pagination */
+.pagination .page-link {
+  border-radius: .7rem;
+  &:focus-visible { @include focus-ring($primary, .35); }
+}
+
+/* Login page */
+.pagelayout-login #page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1200px 600px at 10% -10%, rgba($primary,.12), transparent),
+              radial-gradient(1000px 600px at 110% 110%, rgba($success,.10), transparent),
+              #0b1220;
+}
+
+.pagelayout-login .card {
+  width: min(92vw, 880px);
+  border: none;
+  @include glassy(#fff, 16px, .9);
+  .card-body { padding: 2rem; }
+  .btn-primary { width: 100%; }
+}
+
+/* Progress bar flair */
+.progress {
+  background: rgba(0,0,0,.06);
+  border-radius: 999px;
+  .progress-bar { border-radius: 999px; }
+}
+
+/* Badges */
+.badge {
+  padding: .45em .7em;
+  border-radius: .75rem;
+  font-weight: 600;
+}
+
+/* Drawer (left nav) */
+.drawer {
+  border-right: 1px solid rgba(0,0,0,.06);
+  .drawerheader { font-weight: 700; }
+}
+
+/* Search focus states */
+input[type="search"] {
+  &:focus { @include focus-ring($primary, .25); }
+}
+
+/* Dark mode (respektiert System-Einstellung) */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: rgba(255,255,255,.88);
+    background: #0b1220;
+  }
+  a { color: lighten($primary, 12%); }
+  .card, .activity, .block, .table, .message-app.drawer {
+    background: #101828;
+    color: rgba(255,255,255,.9);
+    border-color: rgba(255,255,255,.08);
+    box-shadow: none;
+  }
+  .navbar.navbar-light, #page-header .navbar {
+    background: rgba(16,24,40,.8);
+    border-bottom-color: rgba(255,255,255,.08);
+  }
+  .breadcrumb .breadcrumb-item.active { color: lighten($primary, 10%); }
+  .table-striped tbody tr:nth-of-type(odd) { background: rgba(255,255,255,.03); }
+  .progress { background: rgba(255,255,255,.12); }
+  #page-footer { background: #05070e; }
+}
+
+/* High-contrast override toggled via <body class="hc-mode"> */
+body.hc-mode {
+  color: $hc-fg; background: $hc-bg;
+  a { color: yellow !important; text-decoration: underline !important; }
+  .btn, .badge, .alert, .card, .activity, .block, .table, .drawer, .navbar {
+    color: $hc-fg !important;
+    background: #000 !important;
+    border: 2px solid #fff !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Small polish utilities */
+.rounded-2xl { border-radius: 1.25rem !important; }
+.shadow-soft { box-shadow: $box-shadow !important; }
+.text-muted-700 { color: #475569 !important; }
