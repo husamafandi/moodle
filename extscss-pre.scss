@@ -1,0 +1,52 @@
+/* === Boost Union – Pre-SCSS (v2 Minimal Indigo) ============================
+   Nur Variablen/Mixins – keine Selektoren. Kompiliert alleine (validierungsfreundlich).
+============================================================================= */
+
+$brand-primary:   #6d28d9; // indigo-700
+$brand-secondary: #0ea5e9; // sky-500
+$brand-success:   #22c55e;
+$brand-warning:   #f59e0b;
+$brand-danger:    #ef4444;
+$brand-dark:      #0b1020;
+$brand-light:     #f7f8fb;
+
+$primary:   $brand-primary !default;
+$secondary: $brand-secondary !default;
+$success:   $brand-success !default;
+$warning:   $brand-warning !default;
+$danger:    $brand-danger !default;
+$dark:      $brand-dark !default;
+$light:     $brand-light !default;
+
+$font-family-sans-serif: "Inter", ui-sans-serif, system-ui, -apple-system,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+  "Segoe UI Emoji", sans-serif !default;
+
+$headings-font-weight: 800 !default;
+$headings-color:       #0f172a !default;
+$body-color:           #1f2937 !default;
+$body-bg:              #ffffff !default;
+$border-radius:        .9rem !default;
+$border-radius-lg:     1.25rem !default;
+$box-shadow:           0 10px 30px rgba(13,16,45,.08) !default;
+
+/* Mixins */
+@mixin focus-ring($color: $primary, $alpha: .28) {
+  outline: none;
+  box-shadow: 0 0 0 .25rem rgba($color, $alpha);
+}
+
+@mixin soft-card {
+  border: 1px solid rgba(3,7,18,.08);
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+  background: #fff;
+}
+
+:root {
+  --brand-primary: #{$primary};
+  --brand-secondary: #{$secondary};
+  --brand-dark: #{$dark};
+  --radius: #{$border-radius};
+  --radius-lg: #{$border-radius-lg};
+}

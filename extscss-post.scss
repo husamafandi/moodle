@@ -1,0 +1,123 @@
+/* === Boost Union – Post-SCSS (v2 Minimal Indigo) ===========================
+   Selbstständig kompilierbar (keine Abhängigkeit zu Pre-Variablen erforderlich).
+============================================================================= */
+
+/* Lokale Variablen für dieses Styleset */
+$accent: #6d28d9;       // Indigo
+$accent-2: #0ea5e9;     // Sky
+$ink: #0f172a;
+$text: #1f2937;
+$muted: #475569;
+$surface: #ffffff;
+$surface-2: #f7f8fb;
+$radius: .9rem;
+$radius-lg: 1.25rem;
+$shadow: 0 10px 30px rgba(13,16,45,.08);
+
+/* Basics */
+body {
+  color: $text;
+  background: $surface-2;
+  font-feature-settings: "cv02","cv03","cv04","cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: $accent; text-decoration: none; &:hover { text-decoration: underline; } }
+
+/* Navbar */
+#page-header .navbar,
+.navbar.navbar-light {
+  background: rgba(255,255,255,.9);
+  border-bottom: 1px solid rgba(2,6,23,.08);
+  backdrop-filter: blur(8px) saturate(1.1);
+}
+
+.navbar .navbar-brand { font-weight: 800; color: $accent; letter-spacing: -.02em; }
+.navbar .nav-link {
+  color: $ink; font-weight: 600; border-radius: $radius; padding: .45rem .7rem;
+  &:hover { background: rgba($accent,.08); }
+  &.active { color: $accent; }
+}
+
+/* Footer */
+#page-footer { background: #0b1020; color: rgba(255,255,255,.9);
+  a { color:#fff; text-decoration: underline; }
+}
+
+/* Cards, Blocks, Activities */
+.card, .block, .activity {
+  border-radius: $radius-lg;
+  background: $surface;
+  border: 1px solid rgba(2,6,23,.08);
+  box-shadow: $shadow;
+}
+
+.activity {
+  padding: .9rem 1rem; margin-bottom: .85rem;
+  .activityinstance > a { color: $ink; font-weight: 700; }
+  .activityiconcontainer { background: rgba($accent,.08); color: $accent; border-radius: .9rem; }
+}
+
+/* Buttons */
+.btn { border-radius: $radius; font-weight: 700; }
+.btn-primary { background: $accent; border-color: $accent;
+  &:hover { filter: brightness(.95); }
+  &:focus-visible { outline: none; box-shadow: 0 0 0 .25rem rgba($accent,.25); }
+}
+.btn-outline-primary { color: $accent; border-color: $accent; &:hover { background: rgba($accent,.08); }}
+
+/* Forms */
+.form-control, .form-select { border-radius: $radius; &:focus{ box-shadow: 0 0 0 .25rem rgba($accent,.2);}}
+
+/* Dashboard course cards */
+.block_myoverview .card,
+.path-course-view .coursebox {
+  border-radius: $radius-lg; overflow: hidden;
+  .card-img-top, .courseimage { height: 140px; object-fit: cover; }
+  .card-body { padding: 1rem 1rem .85rem; }
+  .progress { height: .5rem; border-radius: 999px;
+    .progress-bar { background: $accent-2; }
+  }
+}
+
+/* Breadcrumbs */
+.breadcrumb { background: transparent; 
+  .breadcrumb-item + .breadcrumb-item::before { color: #94a3b8; }
+  .breadcrumb-item.active { color: $accent; font-weight: 700; }
+}
+
+/* Alerts */
+.alert { border-radius: $radius; border: none; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+
+/* Login */
+.pagelayout-login #page {
+  min-height: 100vh; display: grid; place-items: center;
+  background:
+    radial-gradient(900px 500px at 0% 0%, rgba($accent,.20), transparent 60%),
+    radial-gradient(700px 400px at 100% 100%, rgba($accent-2,.18), transparent 60%),
+    #0b1020;
+}
+.pagelayout-login .card {
+  width: min(92vw, 860px); border: none; border-radius: $radius-lg;
+  background: rgba(255,255,255,.9); backdrop-filter: blur(12px);
+  .card-body { padding: 2rem; }
+}
+
+/* Tables */
+.table { border-radius: $radius; overflow: hidden; }
+.table-striped tbody tr:nth-of-type(odd) { background: rgba(2,6,23,.025); }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body { color: rgba(255,255,255,.9); background: #0b1020; }
+  a { color: lighten($accent,12%); }
+  .card, .block, .activity { background: #0f172a; border-color: rgba(255,255,255,.08); box-shadow: none; }
+  .table-striped tbody tr:nth-of-type(odd) { background: rgba(255,255,255,.04); }
+  .navbar.navbar-light, #page-header .navbar { background: rgba(15,23,42,.85); border-bottom-color: rgba(255,255,255,.08); }
+  #page-footer { background: #050816; }
+}
+
+/* Utility */
+.rounded-2xl { border-radius: 1.25rem !important; }
+.shadow-soft { box-shadow: $shadow !important; }
+.text-muted-700 { color: $muted !important; }
