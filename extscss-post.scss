@@ -1,6 +1,7 @@
 /* === Boost Union – Post-SCSS (Moodle 4.5) ==================================
    Enthält eigentliche Styles. Nutzt nur Variablen/Mixins aus dem Pre-SCSS.
 ============================================================================ */
+body { outline: 6px solid magenta !important; }
 
 /* Body & Typography */
 body {
