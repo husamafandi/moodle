@@ -1,15 +1,11 @@
-# Boost Union – Externes SCSS (v2 Minimal Indigo)
+# Boost Union – Externes SCSS (v3 Corporate Calm)
 
-Alternative Styles (neues Farbschema & Look). **Post-SCSS ist selbstständig kompiliert** und benötigt keine Pre-Variablen – geeignet, wenn die externe SCSS-Validierung auf *Ja* bleibt.
+Dieses Set fokussiert auf **harmonische Farben**, ruhige Schatten/Rundungen und **korrekte Kurskarten** im Dashboard.
 
 ## Dateien
-- `extscss-pre.scss` → optionale Variablen & Mixins für spätere Erweiterungen
-- `extscss-post.scss` → eigentliche Styles (unabhängig vom Pre-SCSS)
+- `extscss-pre.scss` – optional (Variablen/Mixins)
+- `extscss-post.scss` – **self-contained**, kann alleine validiert werden
 
-## Pfade in Boost Union (privates GitHub)
-- Nutzer/in: `DEIN_USER`
-- Repository: `DEIN_REPO`
-- Pre-Pfad: `/extscss-pre.scss`
-- Post-Pfad: `/extscss-post.scss`
-
-Oder als Öffentliche URL über `raw.githubusercontent.com`.
+## Empfehlung
+- In Boost Union die **Externe SCSS-Validierung = Ja** lassen.
+- Danach **Alle Caches leeren**.
